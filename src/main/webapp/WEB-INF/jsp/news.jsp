@@ -26,6 +26,14 @@
             .ie6 .post .layout-cell {border:none !important; padding:0 !important; }
 
         </style>
+        <style type="text/css" media="screen">
+            .twtbtn {
+                display: block;
+                text-decoration: none;
+                padding: 2px 5px 2px 20px;
+                background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat;
+            }
+        </style>
 
         <script src="https://www.google.com/jsapi"></script>
         <script type="text/javascript">
@@ -63,7 +71,7 @@
 
             }
             function searchComplete() {
-                (function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs"));
+                
                 
                 (function(d, s, id) {
                     var js, fjs = d.getElementsByTagName(s)[0];
@@ -94,7 +102,7 @@
                         var cont = '<div class="alert alert-dismissable alert-warning" style="background-color: #ebebeb;color:#000;">'
                             +'<h4 style="color: #246994">'+news_title+'</h4> : <small style="color: #0C0E13;">'+news_pub_date+'</small> : Published by '+news_publisher
                             +'<p style="color: #0C0E13;">'+news_content+'</p>'
-                            +'<br/><button style="color:#000;" class="fb-like" onclick="post_on_wall('+newshot+');">Post on FB</button><br/><a href="https://twitter.com/intent/tweet?text='+news_content+'" class="twitter-share-button" >Tweet</a></div>'
+                            +'<br/><button style="color:#000;" onclick="post_on_wall('+newshot+');">Post on FB</button><br/><a class="twtbtn" href="https://twitter.com/intent/tweet?text='+news_content+'" target="_blank">Tweet</a></div>'
                             +'';
                         document.getElementById('news_itm').innerHTML  += cont;
                     }
