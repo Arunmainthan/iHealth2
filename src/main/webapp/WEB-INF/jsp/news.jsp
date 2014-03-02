@@ -83,16 +83,20 @@
                         var news_publisher = newsSearch.results[i].publisher;
                         var news_pub_date = newsSearch.results[i].publishedDate;
                         
+                        $.get("savenews.html", { t:news_title, c:news_content, d:news_pub_date, u:news_url })
+                        
                         var newshot = "'"+news_content+"'";
                         
+                        if (news_content.length > 140) {
+                            news_content = news_content.substring(0, 140);
+                        }
                         
                         var cont = '<div class="alert alert-dismissable alert-warning" style="background-color: #ebebeb;color:#000;">'
                             +'<h4 style="color: #246994">'+news_title+'</h4> : <small style="color: #0C0E13;">'+news_pub_date+'</small> : Published by '+news_publisher
                             +'<p style="color: #0C0E13;">'+news_content+'</p>'
-                            +'<br/><button style="color:#000;" class="fb-like" onclick="post_on_wall('+newshot+');">Post on FB</button><br/><a href="https://twitter.com/share" class="twitter-share-button"  data-text="'+news_content.substring(0, 136)+'" data-url="" data-lang="en">Tweet</a></div>'
+                            +'<br/><button style="color:#000;" class="fb-like" onclick="post_on_wall('+newshot+');">Post on FB</button><br/><a href="https://twitter.com/intent/tweet?text='+news_content+'" class="twitter-share-button" >Tweet</a></div>'
                             +'';
                         document.getElementById('news_itm').innerHTML  += cont;
-                        $.get("savenews.html", { t:news_title, c:news_content, d:news_pub_date, u:news_url })
                     }
                 }
             }
